@@ -30,6 +30,9 @@ jobs:
         with:
           path: ~/.m2
           key: maven-${{ hashFiles('backend/pom.xml') }}
+      
+      - name: Make mvnw executable
+        run: chmod +x mvnw    
 
       - name: Build backend
         run: ./mvnw clean verify
