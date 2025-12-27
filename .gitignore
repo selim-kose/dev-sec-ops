@@ -63,7 +63,7 @@ backend/.idea/
 backend/*.iml
 
 # Maven
-backend/.mvn/wrapper/maven-wrapper.jar
+#backend/.mvn/wrapper/maven-wrapper.jar
 
 ####################################
 # ===== IDEs =====
