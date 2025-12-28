@@ -7,7 +7,7 @@ import { Navigation } from './components/navigation/navigation';
   imports: [RouterOutlet, Navigation],
   template: `
     <main class="main">
-      <h1>Welcome User Management!</h1>
+      <h1>Welcome to User Management!</h1>
       <app-navigation></app-navigation>
     </main>
 

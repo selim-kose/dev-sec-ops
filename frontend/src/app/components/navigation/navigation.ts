@@ -7,9 +7,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   template: `
     <nav>
       <a routerLink="/">Home</a>
-      <a routerLink="/add">Add</a>
-      <a routerLink="/remove">Remove</a>
-      <a routerLink="/update">Update</a>
+      <a routerLink="/add" data-testid="add-user-link">Add</a>
+      <a routerLink="/remove" data-testid="remove-user-link">Remove</a>
+      <a routerLink="/update" data-testid="update-user-link">Update</a>
     </nav>
     
   `,
