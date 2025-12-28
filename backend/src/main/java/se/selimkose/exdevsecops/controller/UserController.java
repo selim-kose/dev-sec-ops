@@ -10,7 +10,7 @@ import se.selimkose.exdevsecops.service.UserService;
 import java.util.List;
 import java.util.UUID;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:5000"})
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api")
