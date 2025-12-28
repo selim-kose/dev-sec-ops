@@ -3,7 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
-  imports: [RouterLink, RouterOutlet],
+  imports: [RouterLink],
   template: `
     <nav>
       <a routerLink="/">Home</a>
@@ -18,6 +18,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
+    background-color: #f5f5f5;
+    padding: 1rem;
   }
   `,
 })
