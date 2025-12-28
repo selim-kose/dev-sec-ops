@@ -8,12 +8,10 @@ import { User } from '../../models/user.model';
   imports: [],
   template: `
     <h2>Users</h2>
-    <p>{{ text() }}</p>
-
     <ul>
       @for(user of users(); track user.id) {
       <li>
-        {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
+        {{user.id}} - {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
       </li>
       } @empty {
         <p>No users found.</p>
