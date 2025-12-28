@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
     <h2>Users</h2>
     <ul>
       @for(user of users(); track user.id) {
-      <li>
+      <li data-testid="user">
         {{user.id}} - {{ user.firstName }} {{ user.lastName }} - {{ user.email }}
       </li>
       } @empty {
