@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "test:api": "newman run api-tests/ex-devSecOps.postman_collection.json"
   },
   "prettier": {
     "printWidth": 100,
@@ -39,6 +40,7 @@
     "@angular/compiler-cli": "^21.0.0",
     "@playwright/test": "1.57.0",
     "jsdom": "^27.1.0",
+    "newman": "^6.2.1",
     "playwright-ng-schematics": "^21.0.3",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
