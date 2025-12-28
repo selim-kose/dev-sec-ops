@@ -31,9 +31,6 @@ public class UserService {
     public User updateUser(UUID id , User newUser) {
         Optional<User> previousUser = userRepository.findById(id);
 
-        System.out.println(previousUser);
-        System.out.println(newUser);
-
         if(previousUser.isPresent()) {
             User previousUserUnwrapped = previousUser.get();
             previousUserUnwrapped.setFirstName(newUser.getFirstName());
