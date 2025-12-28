@@ -59,6 +59,10 @@ jobs:
         working-directory: frontend
         run: npm run build -- --configuration=production
 
+      - name: Make mvnw executable
+        working-directory: backend
+        run: chmod +x mvnw
+
       - name: Start backend
         working-directory: backend
         run: ./mvnw spring-boot:run &
