@@ -33,13 +33,20 @@
 							"})\r",
 							"\r",
 							"//Add users array to collection variables.Can bu used in other tests in same collection\r",
-							"pm.collectionVariables.set(\"users\", \"users\")\r",
+							"pm.collectionVariables.set(\"users\", users)\r",
 							"console.log(pm.collectionVariables.get(\"users\"))\r",
 							""
 						],
 						"type": "text/javascript",
 						"packages": {},
 						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -115,12 +122,53 @@
 		},
 		{
 			"name": "Update User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//Get users array from previous request\r",
+							"const users = pm.collectionVariables.get('users')\r",
+							"console.log(pm.collectionVariables.get('users'))\r",
+							"\r",
+							"//Get first users id and store it as an environment variable\r",
+							"//that can be used in the URL with {{id}}\r",
+							"if(users.length > 0) {\r",
+							"    pm.environment.set('id', users[0].id)\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an array\", function(){\r",
+							"    pm.expect(response).to.be.an('object')\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Selim\",\r\n    \"lastName\": \"Köse\",\r\n    \"email\": \"selim-kose2@live.com\"\r\n}",
+					"raw": "{\r\n    \"firstName\": \"Elon\",\r\n    \"lastName\": \"Musk\",\r\n    \"email\": \"muski@live.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,7 +176,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/31c4c657-e590-4857-bfc6-c9d1ca53766e",
+					"raw": "http://localhost:8080/api/{{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -136,7 +184,7 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"31c4c657-e590-4857-bfc6-c9d1ca53766e"
+						"{{id}}"
 					]
 				}
 			},
